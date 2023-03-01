@@ -7,15 +7,15 @@
  */
 size_t height(const binary_tree_t *tree)
 {
-        size_t left_height = 0, right_height = 0;
+	size_t left_height = 0, right_height = 0;
 
-        if (tree == NULL)
-                return (0);
-        if (tree->left != NULL)
-                left_height = 1 + height(tree->left);
-        if (tree->right != NULL)
-                right_height = 1 + height(tree->right);
-        return (left_height > right_height ? left_height : right_height);
+	if (tree == NULL)
+		return (0);
+	if (tree->left != NULL)
+		left_height = 1 + height(tree->left);
+	if (tree->right != NULL)
+		right_height = 1 + height(tree->right);
+	return (left_height > right_height ? left_height : right_height);
 }
 /**
  * traverse_special - traverse a given tree and apply a function
@@ -28,18 +28,18 @@ size_t height(const binary_tree_t *tree)
 size_t traverse_special(const binary_tree_t *tree,
 		size_t level, void (*func)(int))
 {
-        size_t left_height = 0, right_height = 0;
+	size_t left_height = 0, right_height = 0;
 	size_t c_level;
 
-        if (tree == NULL)
-                return (0);
-        if (tree->left != NULL)
-                left_height = 1 + traverse_special(tree->left,
+	if (tree == NULL)
+		return (0);
+	if (tree->left != NULL)
+		left_height = 1 + traverse_special(tree->left,
 				level, func);
-        if (tree->right != NULL)
-                right_height = 1 + traverse_special(tree->right,
+	if (tree->right != NULL)
+		right_height = 1 + traverse_special(tree->right,
 				level, func);
-        c_level = left_height > right_height ? left_height : right_height;
+	c_level = left_height > right_height ? left_height : right_height;
 	if (c_level == level)
 		func(tree->n);
 	return (c_level);
