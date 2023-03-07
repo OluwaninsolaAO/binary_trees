@@ -61,7 +61,7 @@ int *tree_to_array(const binary_tree_t *tree)
 	 * instead of array of int, to escape having to set empty
 	 * nodes to 0.
 	 */
-	for (i = 0; i < height; i++)
+	for (i = 0; i < ((1 << height) - 1); i++)
 		array[i] = 0;
 	update_array(array, tree, 0);
 
